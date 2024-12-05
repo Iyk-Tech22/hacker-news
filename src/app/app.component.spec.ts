@@ -1,29 +1,28 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { TestBed, waitForAsync } from '@angular/core/testing'
+import { getNativeElementByTestId } from 'angular-unit-test-helper'
+
+import { AppComponent } from './app.component'
+// import { commonTestingModules } from './common/common.testing'
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [AppComponent],
-    }).compileComponents();
-  });
+      providers: [],
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'lemon-mart-practice' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('lemon-mart-practice');
-  });
+    const fixture = TestBed.createComponent(AppComponent)
+    const app = fixture.debugElement.componentInstance
+    expect(app).toBeTruthy()
+  })
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, lemon-mart-practice');
-  });
-});
+    const fixture = TestBed.createComponent(AppComponent)
+    fixture.detectChanges()
+
+    const titleElement = getNativeElementByTestId(fixture, 'title')
+    expect(titleElement.textContent).toContain('HackerNews')
+  })
+})
