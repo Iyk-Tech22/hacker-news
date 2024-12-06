@@ -24,7 +24,7 @@
           <div>
             <span>Page</span>
             <span>{{page$ | async}}</span>
-            <span>of {{total$ | async}}</span>
+            <span>of {{totalPages }}</span>
           </div>
           <button (click)="nextPage()" id="nxt-page" aria-label="Next Page" title="Go To Next Page">
             <img src="assets/icons/right_arrow_icon.svg" />

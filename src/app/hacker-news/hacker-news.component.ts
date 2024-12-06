@@ -29,11 +29,11 @@ interface IHackerNewsData {
 export class HackerNewsComponent implements OnInit {
   loadHackerNews$!: Observable<IHackerNewsData[]>
   private currentPage = 0
+  totalPages = 0
+
   readonly searchCtrl = new FormControl()
   private readonly hackerNewsService = inject(HackerNewsService)
-
   readonly page$ = this.hackerNewsService.page$
-  readonly total$ = this.hackerNewsService.total$
   readonly limit$ = this.hackerNewsService.limit$
   readonly search$ = this.hackerNewsService.search$
 
@@ -42,8 +42,7 @@ export class HackerNewsComponent implements OnInit {
       switchMap(([page, limit, search]) =>
         this.hackerNewsService.fetchHackerNews({ page, limit, search }).pipe(
           tap((response) => {
-            const total = response.data.pagination.totalStories
-            this.hackerNewsService.total$.next(total)
+            this.totalPages = response.data.pagination.totalPages
           }),
           map((res) => {
             const stories = res.data.stories
@@ -72,6 +71,7 @@ export class HackerNewsComponent implements OnInit {
   }
 
   nextPage(): void {
+    if (this.currentPage === this.totalPages) return
     this.page$.next(++this.currentPage)
   }
 }

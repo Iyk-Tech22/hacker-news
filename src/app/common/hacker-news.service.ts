@@ -11,7 +11,7 @@ const API_URL = environment.baseUrl + 'api/hackernews/stories'
   providedIn: 'root',
 })
 export class HackerNewsService {
-  total$ = new BehaviorSubject<number>(100)
+  totalPages$ = new BehaviorSubject<number>(100)
   limit$ = new BehaviorSubject<number>(12)
   page$ = new BehaviorSubject<number>(1)
   search$ = new BehaviorSubject<string>('')
