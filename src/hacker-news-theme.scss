@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$hacker-news-primary: mat.define-palette(mat.$gray-palette, 900);
-$hacker-news-accent: mat.define-palette(mat.$gray-palette, 500);
+$hacker-news-primary: mat.define-palette(mat.$orange-palette, 800);
+$hacker-news-accent: mat.define-palette(mat.$orange-palette, 500);
 
 // The warn palette is optional (defaults to red).
 $hacker-news-warn: mat.define-palette(mat.$red-palette);

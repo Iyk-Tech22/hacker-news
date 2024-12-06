@@ -12,7 +12,7 @@ const API_URL = environment.baseUrl + 'api/hackernews/stories'
 })
 export class HackerNewsService {
   total$ = new BehaviorSubject<number>(100)
-  limit$ = new BehaviorSubject<number>(10)
+  limit$ = new BehaviorSubject<number>(12)
   page$ = new BehaviorSubject<number>(1)
   search$ = new BehaviorSubject<string>('')
 
@@ -24,21 +24,9 @@ export class HackerNewsService {
       ? url + '?' + this.buildUrlParams(query)
       : url
 
-    return this.http.get<IHackerNewsResponse>(`${urlParam}`).pipe(
-      map((response) => {
-        const stories = response.data.stories.map((story) => {
-          const result = timeStampToDate(story.time)
-          return {
-            ...story,
-            day: result.day,
-            month: result.month,
-          }
-        })
-        response.data.stories = stories
-        return response
-      }),
-      catchError(transformError)
-    )
+    return this.http
+      .get<IHackerNewsResponse>(`${urlParam}`)
+      .pipe(catchError(transformError))
   }
 
   private buildUrlParams(query: any): URLSearchParams {

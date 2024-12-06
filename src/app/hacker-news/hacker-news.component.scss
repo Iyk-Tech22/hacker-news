@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  max-height: 100%;
+  padding: 20px 0;
+}
+
+.content div {
+  background-color: #f6f6ef;
+  padding: 10px 0;
+  height: 100%;
+}
+
+.container header {
+  background-color: #ff6600;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.container header h2 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.container ul {
+  list-style: none;
+  max-height: 100%;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #f6f6ef;
+}
+
+.container li {
+  border-bottom: 1px solid gray;
+}
+
+.container li a:active {
+  color: #000;
+}
+
+.container li a {
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  cursor: pointer;
+}
+
+.search {
+  width: 30%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #ff6600;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: #ff6600;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  width: 30%;
+  margin-left: 10px;
+}
+
+.pagination span {
+  color: #000;
+  font-size: 15px;
+  margin-left: 2px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

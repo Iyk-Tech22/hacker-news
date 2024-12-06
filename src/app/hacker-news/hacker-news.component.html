@@ -1,3 +1,38 @@
-<div>
-  <app-hacker-news-card />
-</div>
+@if(loadHackerNews$ | async; as hackerNewsStorys){
+  <div class="container">
+    <header>
+      <h2 data-testid="title">Hacker News Feed</h2>
+    </header>
+    <div class="content">
+      <ul>
+        @for(story of hackerNewsStorys; track story.id){
+            <li>
+              <a [href]="story.link">{{story.title}}</a>
+            </li>
+        }
+      </ul>
+
+      <div class="footer">
+        <div class="search">
+           <input [formControl]="searchCtrl" type="text" class="searchTerm" placeholder="What are you looking for?">
+        </div>
+
+        <div class="pagination">
+          <button (click)="prevPage()" id="prev-page" aria-label="Previous Page" title="Go To Previous Page">
+            <img src="assets/icons/left_arrow_icon.svg" />
+          </button>
+          <div>
+            <span>Page</span>
+            <span>{{page$ | async}}</span>
+            <span>of {{total$ | async}}</span>
+          </div>
+          <button (click)="nextPage()" id="nxt-page" aria-label="Next Page" title="Go To Next Page">
+            <img src="assets/icons/right_arrow_icon.svg" />
+          </button>
+        </div>
+     </div>
+    </div>
+  </div>
+}
+
+
