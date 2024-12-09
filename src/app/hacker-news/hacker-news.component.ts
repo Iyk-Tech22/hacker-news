@@ -16,7 +16,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms'
 interface IHackerNewsData {
   id: number
   title: string
-  link: string
+  link: string | null
 }
 
 @Component({
@@ -28,7 +28,7 @@ interface IHackerNewsData {
 })
 export class HackerNewsComponent implements OnInit {
   loadHackerNews$!: Observable<IHackerNewsData[]>
-  private currentPage = 0
+  currentPage = 0
   totalPages = 0
 
   readonly searchCtrl = new FormControl()
@@ -47,7 +47,7 @@ export class HackerNewsComponent implements OnInit {
           map((res) => {
             const stories = res.data.stories
             return stories.map((story) => {
-              return { id: story.id, title: story.title, link: story.url }
+              return { id: story.id, title: story.title, link: story?.url }
             })
           })
         )

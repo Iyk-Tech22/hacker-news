@@ -13,12 +13,12 @@ export interface IStory {
   by: string
   descendants: number
   id: number
-  kids?: number[]
+  kids?: number[] | null
   score: number
   time: number
   title: string
   type: string
-  url: string
+  url: string | null
   day?: string
   month?: string
 }

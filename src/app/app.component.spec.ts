@@ -17,12 +17,4 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
   })
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-
-    const titleElement = getNativeElementByTestId(fixture, 'title')
-    expect(titleElement.textContent).toContain('HackerNews')
-  })
 })

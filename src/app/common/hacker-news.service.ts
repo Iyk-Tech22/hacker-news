@@ -1,11 +1,11 @@
 import { inject, Injectable } from '@angular/core'
 import { environment } from '../../environments/environment'
-import { HttpClient, HttpParams } from '@angular/common/http'
-import { BehaviorSubject, catchError, map, Observable, Subject } from 'rxjs'
+import { HttpClient } from '@angular/common/http'
+import { BehaviorSubject, catchError, Observable } from 'rxjs'
 import { IHackerNewsResponse, IQuery } from './hacker-news.interface'
 import { timeStampToDate, transformError } from './utils'
 
-const API_URL = environment.baseUrl + 'api/hackernews/stories'
+export const API_URL = environment.baseUrl + 'api/hackernews/stories'
 
 @Injectable({
   providedIn: 'root',

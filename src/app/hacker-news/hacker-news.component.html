@@ -2,6 +2,9 @@
   <div class="container">
     <header>
       <h2 data-testid="title">Hacker News Feed</h2>
+      <div class="search">
+        <input [formControl]="searchCtrl" type="text" class="searchTerm" placeholder="What are you looking for?">
+     </div>
     </header>
     <div class="content">
       <ul>
@@ -13,10 +16,6 @@
       </ul>
 
       <div class="footer">
-        <div class="search">
-           <input [formControl]="searchCtrl" type="text" class="searchTerm" placeholder="What are you looking for?">
-        </div>
-
         <div class="pagination">
           <button (click)="prevPage()" id="prev-page" aria-label="Previous Page" title="Go To Previous Page">
             <img src="assets/icons/left_arrow_icon.svg" />
